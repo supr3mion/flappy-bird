@@ -1,7 +1,7 @@
 ﻿
 namespace flappy_bird
 {
-    partial class mainScreen
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -31,12 +31,13 @@ namespace flappy_bird
         {
             this.SuspendLayout();
             // 
-            // mainScreen
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "mainScreen";
+            this.Name = "Form1";
+            this.Text = "Form1";
             this.ResumeLayout(false);
 
         }
