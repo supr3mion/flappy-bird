@@ -16,6 +16,8 @@ namespace flappy_bird
         int pipeSpeed = 10;
         int gravity = 10;
         int score = 0;
+        int scoreStage = 5;
+        int lives = 3;
 
         public mainScreen()
         {
@@ -46,7 +48,7 @@ namespace flappy_bird
             if (pipeTop1.Left < -150)
             {
                 int randomNumberLeft = number.Next(700, 800);
-                int randomNumberTop = number.Next(-190, -50);
+                int randomNumberTop = number.Next(-190, -70);
                 pipeTop1.Left = randomNumberLeft;
                 pipeTop1.Top = randomNumberTop;
             }
@@ -61,24 +63,31 @@ namespace flappy_bird
             if (pipeTop2.Left < -150)
             {
                 int randomNumberLeft = number.Next(700, 800);
-                int randomNumberTop = number.Next(-190, -50);
+                int randomNumberTop = number.Next(-190, -70);
                 pipeTop2.Left = randomNumberLeft;
                 pipeTop2.Top = randomNumberTop;
             }
 
-            if (flappyBird.Bounds.IntersectsWith(pipeBottom1.Bounds) ||
+            if (flappyBird.Bounds.IntersectsWith(pipeBottom1.Bounds) || 
                 flappyBird.Bounds.IntersectsWith(pipeTop1.Bounds) ||
                 flappyBird.Bounds.IntersectsWith(pipeBottom2.Bounds) ||
                 flappyBird.Bounds.IntersectsWith(pipeTop2.Bounds) ||
                 flappyBird.Bounds.IntersectsWith(ground.Bounds)
                 )
             {
+                lives = lives - 1;
                 endGame();
             }
 
-            if (score > 5)
+
+
+            
+
+            if (score == scoreStage)
             {
-                pipeSpeed = pipeSpeed + 2;
+                pipeSpeed = pipeSpeed + 1;
+                scoreStage = scoreStage + 5; 
+                
             }
         }
 
