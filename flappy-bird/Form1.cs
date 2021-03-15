@@ -55,17 +55,16 @@ namespace flappy_bird
                 int space2 = randomTop2 + 232;
                 int totalSpace = space2 - space1;
 
-                if (totalSpace < 30)
+                if ((totalSpace < 0) == true)
                 {
                     //onderste buis
-                    pipeBottom1.Left = 750;
+                    pipeBottom1.Left = randomLeft1;
                     pipeBottom1.Top = 275;
 
                     //bovernste buis
-                    pipeTop1.Left = 750;
+                    pipeTop1.Left = randomLeft2;
                     pipeTop1.Top = -130;
-                }
-                else
+                } if ((totalSpace < 0) == false)
                 {
                     //onderste buis
                     pipeBottom1.Left = randomLeft1;
@@ -101,16 +100,16 @@ namespace flappy_bird
                 int space2 = randomTop2 + 232;
                 int totalSpace = space2 - space1;
 
-                if (totalSpace < 30)
+                if ((totalSpace < 0) == true)
                 {
                     //onderste buis
-                    pipeBottom2.Left = 750;
+                    pipeBottom2.Left = randomLeft1;
                     pipeBottom2.Top = 275;
 
                     //bovernste buis
-                    pipeTop2.Left = 750;
+                    pipeTop2.Left = randomLeft2;
                     pipeTop2.Top = -130;
-                } else
+                } if ((totalSpace < 0) == false)
                 {
                     //onderste buis
                     pipeBottom2.Left = randomLeft1;
@@ -192,6 +191,11 @@ namespace flappy_bird
                 gravity = -10;
             }
 
+            if (e.KeyCode == Keys.Enter && pnlEnd.Visible == true && pbRetry.Visible == true)
+            {
+                reset();
+            }
+
         }
 
         private void gameKeyUp(object sender, KeyEventArgs e)
@@ -207,10 +211,16 @@ namespace flappy_bird
         private void endGame()
         {
             gameTimer.Stop();
-            lblScore.Text += "  Game Over!!!";
             pnlEnd.Show();
             endScore = endScore + score;
-            lblEndScore.Text = "end score: " + endScore.ToString();
+            if (lives == 0)
+            {
+                lblEndScore.Text = "end score: " + endScore.ToString();
+            } else
+            {
+                lblEndScore.Text = "current score: " + endScore.ToString();
+            }
+            
         }
 
         private void reset()
@@ -253,5 +263,10 @@ namespace flappy_bird
             reset();
         }
 
+        private void pbStart_Click(object sender, EventArgs e)
+        {
+            pnlStart.Hide();
+            gameTimer.Start();
+        }
     }
 }
