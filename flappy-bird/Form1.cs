@@ -18,10 +18,15 @@ namespace flappy_bird
         int score = 0;
         int scoreStage = 5;
         int lives = 3;
+        int endScore = 0;
 
         public mainScreen()
         {
             InitializeComponent();
+            pipeBottom1.Hide();
+            pipeBottom2.Hide();
+            pipeTop1.Hide();
+            pipeTop2.Hide();
         }
 
         private void gameTimerEvent(object sender, EventArgs e)
@@ -36,52 +41,140 @@ namespace flappy_bird
 
             var number = new Random();
 
-            if (pipeBottom1.Left < -150)
-            {
-                int randomNumberLeft = number.Next(700, 800);
-                int randomNumberTop = number.Next(250, 400);
-                pipeBottom1.Left = randomNumberLeft;
-                pipeBottom1.Top = randomNumberTop;
-
-                score++;
-            }
             if (pipeTop1.Left < -150)
             {
-                int randomNumberLeft = number.Next(700, 800);
-                int randomNumberTop = number.Next(-190, -70);
-                pipeTop1.Left = randomNumberLeft;
-                pipeTop1.Top = randomNumberTop;
-            }
-            if (pipeBottom2.Left < -150)
-            {
-                int randomNumberLeft = number.Next(700, 800);
-                int randomNumberTop = number.Next(250, 400);
-                pipeBottom2.Left = randomNumberLeft;
-                pipeBottom2.Top = randomNumberTop;
-                score++;
-            }
-            if (pipeTop2.Left < -150)
-            {
-                int randomNumberLeft = number.Next(700, 800);
-                int randomNumberTop = number.Next(-190, -70);
-                pipeTop2.Left = randomNumberLeft;
-                pipeTop2.Top = randomNumberTop;
+                //voor de onderste buis
+                int randomLeft1 = number.Next(700, 800);
+                int randomTop1 = number.Next(250, 400);
+
+                //voor de bovenste buis
+                int randomLeft2 = number.Next(700, 800);
+                int randomTop2 = number.Next(-190, -70);
+
+                int space1 = randomTop1 - 261;
+                int space2 = randomTop2 + 232;
+                int totalSpace = space2 - space1;
+
+                if (totalSpace < 30)
+                {
+                    //onderste buis
+                    pipeBottom1.Left = 750;
+                    pipeBottom1.Top = 275;
+
+                    //bovernste buis
+                    pipeTop1.Left = 750;
+                    pipeTop1.Top = -130;
+                }
+                else
+                {
+                    //onderste buis
+                    pipeBottom1.Left = randomLeft1;
+                    pipeBottom1.Top = randomTop1;
+
+                    //onderste buis
+                    pipeTop1.Left = randomLeft2;
+                    pipeTop1.Top = randomTop2;
+                }
+                if (pipeTop1.Visible != true)
+                {
+                    pipeTop1.Show();
+                    pipeBottom1.Show();
+                }
+                else
+                {
+                    score++;
+                }
+
             }
 
-            if (flappyBird.Bounds.IntersectsWith(pipeBottom1.Bounds) || 
-                flappyBird.Bounds.IntersectsWith(pipeTop1.Bounds) ||
-                flappyBird.Bounds.IntersectsWith(pipeBottom2.Bounds) ||
-                flappyBird.Bounds.IntersectsWith(pipeTop2.Bounds) ||
-                flappyBird.Bounds.IntersectsWith(ground.Bounds)
+            if (pipeTop2.Left < -150)
+            {
+                //voor de onderste buis
+                int randomLeft1= number.Next(700, 800);
+                int randomTop1 = number.Next(250, 400);
+
+                //voor de bovenste buis
+                int randomLeft2 = number.Next(700, 800);
+                int randomTop2 = number.Next(-190, -70);
+
+                int space1 = randomTop1 - 261;
+                int space2 = randomTop2 + 232;
+                int totalSpace = space2 - space1;
+
+                if (totalSpace < 30)
+                {
+                    //onderste buis
+                    pipeBottom2.Left = 750;
+                    pipeBottom2.Top = 275;
+
+                    //bovernste buis
+                    pipeTop2.Left = 750;
+                    pipeTop2.Top = -130;
+                } else
+                {
+                    //onderste buis
+                    pipeBottom2.Left = randomLeft1;
+                    pipeBottom2.Top = randomTop1;
+
+                    //onderste buis
+                    pipeTop2.Left = randomLeft2;
+                    pipeTop2.Top = randomTop2;
+                }
+                if (pipeTop2.Visible != true)
+                {
+                    pipeTop2.Show();
+                    pipeBottom2.Show();
+                } else
+                {
+                    score++;
+                }
+                
+            }
+
+            if (pipeTop1.Visible && pipeBottom1.Visible == true)
+            {
+                if (flappyBird.Bounds.IntersectsWith(pipeBottom1.Bounds) ||
+                flappyBird.Bounds.IntersectsWith(pipeTop1.Bounds)
                 )
+                {
+                    lives = lives - 1;
+                    endGame();
+                }
+            }
+            if (pipeTop2.Visible && pipeBottom2.Visible == true)
+            {
+                if (flappyBird.Bounds.IntersectsWith(pipeBottom2.Bounds) ||
+                flappyBird.Bounds.IntersectsWith(pipeTop2.Bounds)
+                )
+                {
+                    lives = lives - 1;
+                    endGame();
+                }
+            }
+            if (flappyBird.Bounds.IntersectsWith(ground.Bounds))
             {
                 lives = lives - 1;
                 endGame();
             }
 
 
+            if (lives == 2)
+            {
+                this.life3.BackColor = System.Drawing.Color.Red;
+                lblLives.Text = "lives remaining: 2";
+            }
+            if (lives == 1)
+            {
+                this.life2.BackColor = System.Drawing.Color.Red;
+                lblLives.Text = "lives remaining: 1";
+            }
+            if (lives == 0)
+            {
+                this.life1.BackColor = System.Drawing.Color.Red;
+                lblLives.Text = "lives remaining: 0"; 
+                pbRetry.Hide();
+            }
 
-            
 
             if (score == scoreStage)
             {
@@ -115,6 +208,50 @@ namespace flappy_bird
         {
             gameTimer.Stop();
             lblScore.Text += "  Game Over!!!";
+            pnlEnd.Show();
+            endScore = endScore + score;
+            lblEndScore.Text = "end score: " + endScore.ToString();
         }
+
+        private void reset()
+        {
+
+            score = 0;
+
+            pipeSpeed = 10;
+
+            scoreStage = 5;
+
+            pipeBottom1.Hide();
+            pipeBottom2.Hide();
+            pipeTop1.Hide();
+            pipeTop2.Hide();
+
+            pipeBottom1.Left = 534;
+            pipeBottom1.Top = 297;
+
+            pipeTop1.Left = 534;
+            pipeTop1.Top = -130;
+
+            pipeBottom2.Left = 117;
+            pipeBottom2.Top = 297;
+
+            pipeTop2.Left = 117;
+            pipeTop2.Top = -130;
+
+            flappyBird.Left = 272;
+            flappyBird.Top = 184;
+
+            gameTimer.Start();
+
+            pnlEnd.Hide();
+
+        }
+
+        private void pbRetry_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
+
     }
 }
