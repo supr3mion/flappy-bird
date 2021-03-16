@@ -75,6 +75,7 @@ namespace flappy_bird
             // 
             // gameTimer
             // 
+            this.gameTimer.Enabled = true;
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimerEvent);
             // 
@@ -245,6 +246,9 @@ namespace flappy_bird
             this.Controls.Add(this.pipeTop1);
             this.Controls.Add(this.pipeBottom1);
             this.Controls.Add(this.flappyBird);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(700, 535);
+            this.MinimumSize = new System.Drawing.Size(700, 535);
             this.Name = "mainScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "game";

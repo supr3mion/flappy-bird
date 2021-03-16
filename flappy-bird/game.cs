@@ -44,11 +44,11 @@ namespace flappy_bird
             if (pipeTop1.Left < -150)
             {
                 //voor de onderste buis
-                int randomLeft1 = number.Next(700, 800);
+                int randomLeft1 = number.Next(650, 800);
                 int randomTop1 = number.Next(250, 400);
 
                 //voor de bovenste buis
-                int randomLeft2 = number.Next(700, 800);
+                //int randomLeft2 = number.Next(600, 800);
                 int randomTop2 = number.Next(-190, -70);
 
                 int space1 = randomTop1 - 261;
@@ -62,7 +62,7 @@ namespace flappy_bird
                     pipeBottom1.Top = 275;
 
                     //bovernste buis
-                    pipeTop1.Left = randomLeft2;
+                    pipeTop1.Left = 750;
                     pipeTop1.Top = -130;
                 } 
                 if ((totalSpace < 0) == false)
@@ -72,7 +72,7 @@ namespace flappy_bird
                     pipeBottom1.Top = randomTop1;
 
                     //onderste buis
-                    pipeTop1.Left = randomLeft2;
+                    pipeTop1.Left = 750;
                     pipeTop1.Top = randomTop2;
                 }
                 if (pipeTop1.Visible != true)
@@ -89,11 +89,11 @@ namespace flappy_bird
             if (pipeTop2.Left < -150)
             {
                 //voor de onderste buis
-                int randomLeft1= number.Next(700, 800);
+                int randomLeft1= number.Next(650, 800);
                 int randomTop1 = number.Next(250, 400);
 
                 //voor de bovenste buis
-                int randomLeft2 = number.Next(700, 800);
+                //int randomLeft2 = number.Next(600, 800);
                 int randomTop2 = number.Next(-190, -70);
 
                 int space1 = randomTop1 - 261;
@@ -107,7 +107,7 @@ namespace flappy_bird
                     pipeBottom2.Top = 275;
 
                     //bovernste buis
-                    pipeTop2.Left = randomLeft2;
+                    pipeTop2.Left = 750;
                     pipeTop2.Top = -130;
                 } 
                 if ((totalSpace < 0) == false)
@@ -117,7 +117,7 @@ namespace flappy_bird
                     pipeBottom2.Top = randomTop1;
 
                     //onderste buis
-                    pipeTop2.Left = randomLeft2;
+                    pipeTop2.Left = 750;
                     pipeTop2.Top = randomTop2;
                 }
                 if (pipeTop2.Visible != true)
@@ -192,7 +192,7 @@ namespace flappy_bird
                 gravity = -10;
             }
 
-            if (e.KeyCode == Keys.Enter && pnlEnd.Visible == true && pbRetry.Visible == true)
+            if (e.KeyCode == Keys.Space && pnlEnd.Visible == true && pbRetry.Visible == true)
             {
                 reset();
             }

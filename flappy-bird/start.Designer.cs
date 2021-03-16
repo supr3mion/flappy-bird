@@ -30,12 +30,15 @@ namespace flappy_bird
         private void InitializeComponent()
         {
             this.pnlStart = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pbStart = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlStart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -45,6 +48,8 @@ namespace flappy_bird
             // 
             // pnlStart
             // 
+            this.pnlStart.Controls.Add(this.label2);
+            this.pnlStart.Controls.Add(this.pictureBox4);
             this.pnlStart.Controls.Add(this.pbLogo);
             this.pnlStart.Controls.Add(this.pbStart);
             this.pnlStart.Controls.Add(this.pictureBox3);
@@ -54,6 +59,28 @@ namespace flappy_bird
             this.pnlStart.Name = "pnlStart";
             this.pnlStart.Size = new System.Drawing.Size(760, 562);
             this.pnlStart.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(67, 412);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 16);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "press spacebar or press start";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::flappy_bird.Properties.Resources.highscore;
+            this.pictureBox4.Location = new System.Drawing.Point(376, 431);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(282, 56);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 19;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pbLogo
             // 
@@ -69,7 +96,7 @@ namespace flappy_bird
             // 
             this.pbStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbStart.Image = global::flappy_bird.Properties.Resources.start;
-            this.pbStart.Location = new System.Drawing.Point(218, 407);
+            this.pbStart.Location = new System.Drawing.Point(49, 431);
             this.pbStart.Name = "pbStart";
             this.pbStart.Size = new System.Drawing.Size(226, 56);
             this.pbStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -114,9 +141,16 @@ namespace flappy_bird
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(684, 496);
             this.Controls.Add(this.pnlStart);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(700, 535);
+            this.MinimumSize = new System.Drawing.Size(700, 535);
             this.Name = "start";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "start";
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.start_PreviewKeyDown);
             this.pnlStart.ResumeLayout(false);
+            this.pnlStart.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -134,5 +168,7 @@ namespace flappy_bird
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label2;
     }
 }

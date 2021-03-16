@@ -16,7 +16,7 @@ namespace flappy_bird
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mainScreen());
+            Application.Run(new start());
         }
     }
 }

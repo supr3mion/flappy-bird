@@ -8,3 +8,6 @@ C:\Users\milan\source\repos\flappy-bird\flappy-bird\obj\Debug\flappy-bird.csproj
 C:\Users\milan\source\repos\flappy-bird\flappy-bird\obj\Debug\flappy-bird.csproj.CoreCompileInputs.cache
 C:\Users\milan\source\repos\flappy-bird\flappy-bird\obj\Debug\flappy-bird.exe
 C:\Users\milan\source\repos\flappy-bird\flappy-bird\obj\Debug\flappy-bird.pdb
+C:\Users\milan\source\repos\flappy-bird\flappy-bird\obj\Debug\flappy_bird.start.resources
+C:\Users\milan\source\repos\flappy-bird\flappy-bird\obj\Debug\flappy_bird.highscore.resources
+C:\Users\milan\source\repos\flappy-bird\flappy-bird\obj\Debug\flappy_bird.gameOver.resources

@@ -19,7 +19,31 @@ namespace flappy_bird
 
         private void pbStart_Click(object sender, EventArgs e)
         {
-            
+            mainScreen game = new mainScreen();
+            game.ShowDialog();
+        }
+
+        private void start_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                this.Hide();
+
+                mainScreen game = new mainScreen();
+                game.ShowDialog();
+
+                this.Show();
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            highscore highscoreForm = new highscore();
+            highscoreForm.ShowDialog();
+
+            this.Show();
         }
     }
 }
