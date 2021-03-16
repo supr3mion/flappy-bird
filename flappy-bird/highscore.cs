@@ -16,5 +16,10 @@ namespace flappy_bird
         {
             InitializeComponent();
         }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

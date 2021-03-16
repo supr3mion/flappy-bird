@@ -29,6 +29,7 @@ namespace flappy_bird
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(start));
             this.pnlStart = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -73,7 +74,7 @@ namespace flappy_bird
             // pictureBox4
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::flappy_bird.Properties.Resources.highscore;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(376, 431);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(282, 56);
@@ -84,7 +85,8 @@ namespace flappy_bird
             // 
             // pbLogo
             // 
-            this.pbLogo.Image = global::flappy_bird.Properties.Resources.logo;
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.InitialImage = null;
             this.pbLogo.Location = new System.Drawing.Point(38, 15);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(602, 112);
@@ -95,7 +97,7 @@ namespace flappy_bird
             // pbStart
             // 
             this.pbStart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbStart.Image = global::flappy_bird.Properties.Resources.start;
+            this.pbStart.Image = ((System.Drawing.Image)(resources.GetObject("pbStart.Image")));
             this.pbStart.Location = new System.Drawing.Point(49, 431);
             this.pbStart.Name = "pbStart";
             this.pbStart.Size = new System.Drawing.Size(226, 56);
@@ -106,7 +108,7 @@ namespace flappy_bird
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::flappy_bird.Properties.Resources.pipeBottom;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(299, 361);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(58, 165);
@@ -116,7 +118,7 @@ namespace flappy_bird
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::flappy_bird.Properties.Resources.flappy_bird1;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(299, 250);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(58, 49);
@@ -126,7 +128,7 @@ namespace flappy_bird
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::flappy_bird.Properties.Resources.pipeTop;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(299, 47);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(58, 140);

@@ -29,13 +29,14 @@ namespace flappy_bird
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(highscore));
             this.highscore2 = new System.Windows.Forms.Label();
             this.highscore3 = new System.Windows.Forms.Label();
             this.highscore1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.home = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.home)).BeginInit();
             this.SuspendLayout();
             // 
             // highscore2
@@ -70,6 +71,8 @@ namespace flappy_bird
             // 
             // pictureBox1
             // 
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(66, 232);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(558, 252);
@@ -77,14 +80,16 @@ namespace flappy_bird
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // home
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(331, 46);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(117, 89);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
+            this.home.Image = ((System.Drawing.Image)(resources.GetObject("home.Image")));
+            this.home.Location = new System.Drawing.Point(12, 12);
+            this.home.Name = "home";
+            this.home.Size = new System.Drawing.Size(117, 44);
+            this.home.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.home.TabIndex = 10;
+            this.home.TabStop = false;
+            this.home.Click += new System.EventHandler(this.home_Click);
             // 
             // highscore
             // 
@@ -92,7 +97,7 @@ namespace flappy_bird
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(684, 496);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.home);
             this.Controls.Add(this.highscore2);
             this.Controls.Add(this.highscore3);
             this.Controls.Add(this.pictureBox1);
@@ -104,7 +109,7 @@ namespace flappy_bird
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "higscore";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.home)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -114,6 +119,6 @@ namespace flappy_bird
         private System.Windows.Forms.Label highscore3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label highscore1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox home;
     }
 }

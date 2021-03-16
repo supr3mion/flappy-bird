@@ -29,7 +29,16 @@ namespace flappy_bird
         /// </summary>
         private void InitializeComponent()
         {
+            this.tbName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+            // 
+            // tbName
+            // 
+            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.Location = new System.Drawing.Point(189, 354);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(295, 31);
+            this.tbName.TabIndex = 0;
             // 
             // gameOver
             // 
@@ -37,15 +46,20 @@ namespace flappy_bird
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(684, 496);
+            this.Controls.Add(this.tbName);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(700, 535);
             this.MinimumSize = new System.Drawing.Size(700, 535);
             this.Name = "gameOver";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "gameOver";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox tbName;
     }
 }

@@ -47,6 +47,7 @@ namespace flappy_bird
             this.pipeTop1 = new System.Windows.Forms.PictureBox();
             this.pipeBottom1 = new System.Windows.Forms.PictureBox();
             this.flappyBird = new System.Windows.Forms.PictureBox();
+            this.retryInfo = new System.Windows.Forms.Label();
             this.pnlEnd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRetry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameOver)).BeginInit();
@@ -82,6 +83,7 @@ namespace flappy_bird
             // pnlEnd
             // 
             this.pnlEnd.BackColor = System.Drawing.Color.Transparent;
+            this.pnlEnd.Controls.Add(this.retryInfo);
             this.pnlEnd.Controls.Add(this.pbRetry);
             this.pnlEnd.Controls.Add(this.pbGameOver);
             this.pnlEnd.Controls.Add(this.lblLives);
@@ -98,7 +100,7 @@ namespace flappy_bird
             // pbRetry
             // 
             this.pbRetry.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbRetry.Image = global::flappy_bird.Properties.Resources.retry;
+            this.pbRetry.Image = ((System.Drawing.Image)(resources.GetObject("pbRetry.Image")));
             this.pbRetry.Location = new System.Drawing.Point(233, 407);
             this.pbRetry.Name = "pbRetry";
             this.pbRetry.Size = new System.Drawing.Size(226, 56);
@@ -109,7 +111,7 @@ namespace flappy_bird
             // 
             // pbGameOver
             // 
-            this.pbGameOver.Image = global::flappy_bird.Properties.Resources.game_over;
+            this.pbGameOver.Image = ((System.Drawing.Image)(resources.GetObject("pbGameOver.Image")));
             this.pbGameOver.Location = new System.Drawing.Point(60, 25);
             this.pbGameOver.Name = "pbGameOver";
             this.pbGameOver.Size = new System.Drawing.Size(602, 112);
@@ -141,7 +143,7 @@ namespace flappy_bird
             // life1
             // 
             this.life1.BackColor = System.Drawing.Color.Lime;
-            this.life1.Image = global::flappy_bird.Properties.Resources.flappy_bird1;
+            this.life1.Image = ((System.Drawing.Image)(resources.GetObject("life1.Image")));
             this.life1.Location = new System.Drawing.Point(255, 322);
             this.life1.Name = "life1";
             this.life1.Size = new System.Drawing.Size(58, 50);
@@ -152,7 +154,7 @@ namespace flappy_bird
             // life3
             // 
             this.life3.BackColor = System.Drawing.Color.Lime;
-            this.life3.Image = global::flappy_bird.Properties.Resources.flappy_bird1;
+            this.life3.Image = ((System.Drawing.Image)(resources.GetObject("life3.Image")));
             this.life3.Location = new System.Drawing.Point(383, 322);
             this.life3.Name = "life3";
             this.life3.Size = new System.Drawing.Size(58, 50);
@@ -163,7 +165,7 @@ namespace flappy_bird
             // life2
             // 
             this.life2.BackColor = System.Drawing.Color.Lime;
-            this.life2.Image = global::flappy_bird.Properties.Resources.flappy_bird1;
+            this.life2.Image = ((System.Drawing.Image)(resources.GetObject("life2.Image")));
             this.life2.Location = new System.Drawing.Point(319, 322);
             this.life2.Name = "life2";
             this.life2.Size = new System.Drawing.Size(58, 50);
@@ -232,6 +234,15 @@ namespace flappy_bird
             this.flappyBird.TabIndex = 1;
             this.flappyBird.TabStop = false;
             // 
+            // retryInfo
+            // 
+            this.retryInfo.AutoSize = true;
+            this.retryInfo.Location = new System.Drawing.Point(261, 391);
+            this.retryInfo.Name = "retryInfo";
+            this.retryInfo.Size = new System.Drawing.Size(168, 13);
+            this.retryInfo.TabIndex = 14;
+            this.retryInfo.Text = "press ENTER or klick here to retry\r\n";
+            // 
             // mainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,6 +301,7 @@ namespace flappy_bird
         private System.Windows.Forms.Label lblLives;
         private System.Windows.Forms.Label lblEndScore;
         private System.Windows.Forms.PictureBox pbRetry;
+        private System.Windows.Forms.Label retryInfo;
     }
 }
 

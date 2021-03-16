@@ -173,6 +173,11 @@ namespace flappy_bird
                 this.life1.BackColor = System.Drawing.Color.Red;
                 lblLives.Text = "lives remaining: 0"; 
                 pbRetry.Hide();
+                retryInfo.Hide();
+                int totalScore = endScore;
+                gameOver gameOverForm = new gameOver(totalScore);
+                gameOverForm.ShowDialog();
+                Close();
             }
 
 
@@ -192,7 +197,7 @@ namespace flappy_bird
                 gravity = -10;
             }
 
-            if (e.KeyCode == Keys.Space && pnlEnd.Visible == true && pbRetry.Visible == true)
+            if (e.KeyCode == Keys.Enter && pnlEnd.Visible == true && pbRetry.Visible == true)
             {
                 reset();
             }
