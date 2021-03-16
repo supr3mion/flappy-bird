@@ -34,12 +34,10 @@ namespace flappy_bird
             this.lblScore = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.pnlEnd = new System.Windows.Forms.Panel();
-            this.lblLives = new System.Windows.Forms.Label();
-            this.lblEndScore = new System.Windows.Forms.Label();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.pbStart = new System.Windows.Forms.PictureBox();
             this.pbRetry = new System.Windows.Forms.PictureBox();
             this.pbGameOver = new System.Windows.Forms.PictureBox();
+            this.lblLives = new System.Windows.Forms.Label();
+            this.lblEndScore = new System.Windows.Forms.Label();
             this.life1 = new System.Windows.Forms.PictureBox();
             this.life3 = new System.Windows.Forms.PictureBox();
             this.life2 = new System.Windows.Forms.PictureBox();
@@ -49,13 +47,7 @@ namespace flappy_bird
             this.pipeTop1 = new System.Windows.Forms.PictureBox();
             this.pipeBottom1 = new System.Windows.Forms.PictureBox();
             this.flappyBird = new System.Windows.Forms.PictureBox();
-            this.pnlStart = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnlEnd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRetry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameOver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.life1)).BeginInit();
@@ -67,10 +59,6 @@ namespace flappy_bird
             ((System.ComponentModel.ISupportInitialize)(this.pipeTop1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeBottom1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flappyBird)).BeginInit();
-            this.pnlStart.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // lblScore
@@ -106,6 +94,28 @@ namespace flappy_bird
             this.pnlEnd.TabIndex = 10;
             this.pnlEnd.Visible = false;
             // 
+            // pbRetry
+            // 
+            this.pbRetry.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbRetry.Image = global::flappy_bird.Properties.Resources.retry;
+            this.pbRetry.Location = new System.Drawing.Point(233, 407);
+            this.pbRetry.Name = "pbRetry";
+            this.pbRetry.Size = new System.Drawing.Size(226, 56);
+            this.pbRetry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRetry.TabIndex = 13;
+            this.pbRetry.TabStop = false;
+            this.pbRetry.Click += new System.EventHandler(this.pbRetry_Click);
+            // 
+            // pbGameOver
+            // 
+            this.pbGameOver.Image = global::flappy_bird.Properties.Resources.game_over;
+            this.pbGameOver.Location = new System.Drawing.Point(60, 25);
+            this.pbGameOver.Name = "pbGameOver";
+            this.pbGameOver.Size = new System.Drawing.Size(602, 112);
+            this.pbGameOver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGameOver.TabIndex = 12;
+            this.pbGameOver.TabStop = false;
+            // 
             // lblLives
             // 
             this.lblLives.AutoSize = true;
@@ -126,48 +136,6 @@ namespace flappy_bird
             this.lblEndScore.TabIndex = 10;
             this.lblEndScore.Text = "score: 0";
             this.lblEndScore.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.Image = global::flappy_bird.Properties.Resources.logo;
-            this.pbLogo.Location = new System.Drawing.Point(60, 25);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(602, 112);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogo.TabIndex = 15;
-            this.pbLogo.TabStop = false;
-            // 
-            // pbStart
-            // 
-            this.pbStart.Image = global::flappy_bird.Properties.Resources.start;
-            this.pbStart.Location = new System.Drawing.Point(233, 407);
-            this.pbStart.Name = "pbStart";
-            this.pbStart.Size = new System.Drawing.Size(226, 56);
-            this.pbStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbStart.TabIndex = 14;
-            this.pbStart.TabStop = false;
-            this.pbStart.Click += new System.EventHandler(this.pbStart_Click);
-            // 
-            // pbRetry
-            // 
-            this.pbRetry.Image = global::flappy_bird.Properties.Resources.retry;
-            this.pbRetry.Location = new System.Drawing.Point(233, 407);
-            this.pbRetry.Name = "pbRetry";
-            this.pbRetry.Size = new System.Drawing.Size(226, 56);
-            this.pbRetry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbRetry.TabIndex = 13;
-            this.pbRetry.TabStop = false;
-            this.pbRetry.Click += new System.EventHandler(this.pbRetry_Click);
-            // 
-            // pbGameOver
-            // 
-            this.pbGameOver.Image = global::flappy_bird.Properties.Resources.game_over;
-            this.pbGameOver.Location = new System.Drawing.Point(60, 25);
-            this.pbGameOver.Name = "pbGameOver";
-            this.pbGameOver.Size = new System.Drawing.Size(602, 112);
-            this.pbGameOver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbGameOver.TabIndex = 12;
-            this.pbGameOver.TabStop = false;
             // 
             // life1
             // 
@@ -263,55 +231,12 @@ namespace flappy_bird
             this.flappyBird.TabIndex = 1;
             this.flappyBird.TabStop = false;
             // 
-            // pnlStart
-            // 
-            this.pnlStart.Controls.Add(this.pbLogo);
-            this.pnlStart.Controls.Add(this.pbStart);
-            this.pnlStart.Controls.Add(this.pictureBox3);
-            this.pnlStart.Controls.Add(this.pictureBox2);
-            this.pnlStart.Controls.Add(this.pictureBox1);
-            this.pnlStart.Location = new System.Drawing.Point(-19, -15);
-            this.pnlStart.Name = "pnlStart";
-            this.pnlStart.Size = new System.Drawing.Size(762, 583);
-            this.pnlStart.TabIndex = 16;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::flappy_bird.Properties.Resources.pipeTop;
-            this.pictureBox1.Location = new System.Drawing.Point(319, 51);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(58, 140);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::flappy_bird.Properties.Resources.flappy_bird1;
-            this.pictureBox2.Location = new System.Drawing.Point(319, 253);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(58, 49);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 17;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::flappy_bird.Properties.Resources.pipeBottom;
-            this.pictureBox3.Location = new System.Drawing.Point(319, 363);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(58, 165);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 18;
-            this.pictureBox3.TabStop = false;
-            // 
             // mainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(684, 496);
-            this.Controls.Add(this.pnlStart);
             this.Controls.Add(this.pnlEnd);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.ground);
@@ -322,13 +247,11 @@ namespace flappy_bird
             this.Controls.Add(this.flappyBird);
             this.Name = "mainScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "flappy bird";
+            this.Text = "game";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gameKeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gameKeyUp);
             this.pnlEnd.ResumeLayout(false);
             this.pnlEnd.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRetry)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameOver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.life1)).EndInit();
@@ -340,10 +263,6 @@ namespace flappy_bird
             ((System.ComponentModel.ISupportInitialize)(this.pipeTop1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeBottom1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flappyBird)).EndInit();
-            this.pnlStart.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,12 +286,6 @@ namespace flappy_bird
         private System.Windows.Forms.Label lblLives;
         private System.Windows.Forms.Label lblEndScore;
         private System.Windows.Forms.PictureBox pbRetry;
-        private System.Windows.Forms.PictureBox pbStart;
-        private System.Windows.Forms.PictureBox pbLogo;
-        private System.Windows.Forms.Panel pnlStart;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

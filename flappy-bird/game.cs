@@ -64,7 +64,8 @@ namespace flappy_bird
                     //bovernste buis
                     pipeTop1.Left = randomLeft2;
                     pipeTop1.Top = -130;
-                } if ((totalSpace < 0) == false)
+                } 
+                if ((totalSpace < 0) == false)
                 {
                     //onderste buis
                     pipeBottom1.Left = randomLeft1;
@@ -78,8 +79,7 @@ namespace flappy_bird
                 {
                     pipeTop1.Show();
                     pipeBottom1.Show();
-                }
-                else
+                } else
                 {
                     score++;
                 }
@@ -109,7 +109,8 @@ namespace flappy_bird
                     //bovernste buis
                     pipeTop2.Left = randomLeft2;
                     pipeTop2.Top = -130;
-                } if ((totalSpace < 0) == false)
+                } 
+                if ((totalSpace < 0) == false)
                 {
                     //onderste buis
                     pipeBottom2.Left = randomLeft1;
@@ -130,7 +131,7 @@ namespace flappy_bird
                 
             }
 
-            if (pipeTop1.Visible && pipeBottom1.Visible == true)
+                if (pipeTop1.Visible && pipeBottom1.Visible == true)
             {
                 if (flappyBird.Bounds.IntersectsWith(pipeBottom1.Bounds) ||
                 flappyBird.Bounds.IntersectsWith(pipeTop1.Bounds)
@@ -263,10 +264,5 @@ namespace flappy_bird
             reset();
         }
 
-        private void pbStart_Click(object sender, EventArgs e)
-        {
-            pnlStart.Hide();
-            gameTimer.Start();
-        }
     }
 }
