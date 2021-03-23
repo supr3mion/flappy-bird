@@ -36,3 +36,4 @@ C:\Users\milan\source\repos\flappy-bird\flappy-bird\bin\Debug\System.Memory.xml
 C:\Users\milan\source\repos\flappy-bird\flappy-bird\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\milan\source\repos\flappy-bird\flappy-bird\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\milan\source\repos\flappy-bird\flappy-bird\obj\Debug\flappy-bird.csproj.CopyComplete
+C:\Users\milan\source\repos\flappy-bird\flappy-bird\obj\Debug\flappy_bird.loading.resources

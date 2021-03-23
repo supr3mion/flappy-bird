@@ -17,8 +17,6 @@ namespace flappy_bird
 
         private int lowestPlayerScore = 0;
 
-        private int localScore = 0;
-
         private MySqlConnection connection;
 
         public gameOver(int totalScore)
@@ -28,50 +26,31 @@ namespace flappy_bird
             InitializeDatabaseConnection();
 
             tbName.Hide();
+            pbCrown.Hide();
+            btnSubmitHighScore.Hide();
+            pbNewHighScore.Hide();
 
             playerScore = totalScore;
 
+            lblPlayerScore.Text = "totaal score: " + playerScore.ToString();
+
             lowestScore();
 
-            //label1.Text = localScore.ToString();
+            if (playerScore > lowestPlayerScore)
+            {
+                tbName.Show();
+                pbCrown.Show();
+                btnSubmitHighScore.Show();
+                pbNewHighScore.Show();
+                btnClose.Hide();
 
+                lblHighScoreInfo.Text = "NEW HIGHSCORE" + "\r\n" + "vul hieronder uw naam in" + "\r\n" + "(waarschuwing: andere spelers kunnen de gekozen naam zien)";
 
-            //place(1);
-
-            ////kijkt als de opgehaalde score lager is dan de score die op eerste plaats staat in de database
-            ////als dat het geval is dan gaat hij verder met de 2e plaats en zo verder
-            //if (score < playerScore)
-            //{
-            //    place(2);
-
-            //    if (score < playerScore)
-            //    {
-            //        place(3);
-
-            //        if (score < playerScore)
-            //        {
-
-            //            place(4);
-
-            //            if (score < playerScore)
-            //            {
-            //                placement = 4;
-            //            }
-            //        } else
-            //        {
-            //            tbName.Show();
-
-            //        }
-            //    } else
-            //    {
-            //        tbName.Show();
-
-            //    }
-            //} else
-            //{
-            //    tbName.Show();
-
-            //}
+            }
+            else
+            {
+                lblHighScoreInfo.Text = "geen nieuwe highscore behaald" + "\r\n" + "klik hieronder om terug te gaan naar het start scherm";
+            }
 
         }
 
@@ -90,6 +69,7 @@ namespace flappy_bird
 
         private bool OpenConnection()
         {
+
             CloseConnection();
 
             try
@@ -126,113 +106,30 @@ namespace flappy_bird
             }
         }
 
-        //private int place(int place)
-        //{
-        //    OpenConnection();
-
-        //    string sqlQuery = "SELECT * FROM highscore WHERE place = " + place;
-
-        //    if (this.OpenConnection() == true)
-        //    {
-        //        MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-
-        //        MySqlDataReader dataReader = cmd.ExecuteReader();
-
-        //        if (dataReader.Read())
-        //        {
-        //            int playerScore = Convert.ToInt32(dataReader["score"] + "");
-        //        }
-        //    }
-        //    CloseConnection();
-        //    return score;
-        //}
-
         private void sqlInsert()
         {
             OpenConnection();
+            
+            string insertQuery = "INSERT INTO highscore (name, score) VALUES (@name, " + playerScore + ")";
 
-            if (this.OpenConnection() == true)
+            MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
+
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar,225);
+
+            cmd.Parameters["@name"].Value = tbName.Text;
+
+
+            if (cmd.ExecuteNonQuery() == 1)
             {
-                string insertQuery = "INSERT INTO highscore (name, score) VALUES (@name, " + playerScore + ")";
+                lblHighScoreInfo.Text = "score opgeslagen" + "\r\n" + "klik hieronder om terug te gaan naar het start scherm";
 
-                MySqlCommand cmd = new MySqlCommand(insertQuery, connection);
-
-                cmd.Parameters.Add("@name", MySqlDbType.VarChar);
-
-                cmd.Parameters["@name"].Value = tbName.Text;
-
+                tbName.Hide();
+                btnSubmitHighScore.Hide();
+                btnClose.Show();
             }
 
             CloseConnection();
             
-        }
-
-        //private int[] GetAllScores()
-        //{
-            
-        //    OpenConnection();
-
-        //    string sqlQuery = "SELECT * FROM highscore";
-
-        //    int[] allScores = new int[1];
-        //    allScores[0] = new int();
-
-        //    if (this.OpenConnection() == true)
-        //    {
-        //        MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-
-        //        MySqlDataReader dataReader = cmd.ExecuteReader();
-
-        //        while (dataReader.Read())
-        //        {
-        //            allScores[0].Add(dataReader["score" + ""]).ToString();
-        //        }
-        //        dataReader.Close();
-
-        //        CloseConnection();
-
-        //        return allScores;
-        //    }
-        //    else
-        //    {
-        //        return allScores;
-        //    }
-        //}
-
-        public List<int>[] GetAllScores()
-        {
-            OpenConnection();
-
-            string sqlQuery = "SELECT * FROM highscore ORDER BY score";
-
-            //SELECT * FROM highscore ORDER BY score DESC LIMIT 1
-
-
-            List<int>[] allScores = new List<int>[1];
-            allScores[0] = new List<int>();
-
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                while (dataReader.Read())
-                {
-                    allScores[0].Add(Convert.ToInt32(dataReader["score" + ""]));
-                }
-                dataReader.Close();
-
-                CloseConnection();
-
-                return allScores;
-            }
-            else
-            {
-                return allScores;
-
-                CloseConnection();
-            }
         }
 
         private int lowestScore()
@@ -252,10 +149,10 @@ namespace flappy_bird
                     string localScore = dataReader["score" + ""].ToString();
 
                     lowestPlayerScore = Convert.ToInt32(localScore);
-
-                    label1.Text = lowestPlayerScore.ToString();
                 }
-                
+
+                dataReader.Close();
+
                 return lowestPlayerScore;
 
                 CloseConnection();
@@ -266,6 +163,16 @@ namespace flappy_bird
 
                 CloseConnection();
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnSubmitHighScore_Click(object sender, EventArgs e)
+        {
+            sqlInsert();
         }
     }
 }

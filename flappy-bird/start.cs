@@ -40,8 +40,13 @@ namespace flappy_bird
         {
             this.Hide();
 
+            loading loadingScreen = new loading("highscores");
+            loadingScreen.Show();
+
             highscore highscoreForm = new highscore();
             highscoreForm.ShowDialog();
+
+            loadingScreen.Close();
 
             this.Show();
         }

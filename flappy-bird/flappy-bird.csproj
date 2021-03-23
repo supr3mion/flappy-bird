@@ -110,6 +110,12 @@
     <Compile Include="highscore.Designer.cs">
       <DependentUpon>highscore.cs</DependentUpon>
     </Compile>
+    <Compile Include="loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loading.Designer.cs">
+      <DependentUpon>loading.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="highscore.resx">
       <DependentUpon>highscore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loading.resx">
+      <DependentUpon>loading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -192,6 +201,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nemu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highscore achieved.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -34,6 +34,7 @@ namespace flappy_bird
             this.lblScore = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.pnlEnd = new System.Windows.Forms.Panel();
+            this.retryInfo = new System.Windows.Forms.Label();
             this.pbRetry = new System.Windows.Forms.PictureBox();
             this.pbGameOver = new System.Windows.Forms.PictureBox();
             this.lblLives = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@ namespace flappy_bird
             this.pipeTop1 = new System.Windows.Forms.PictureBox();
             this.pipeBottom1 = new System.Windows.Forms.PictureBox();
             this.flappyBird = new System.Windows.Forms.PictureBox();
-            this.retryInfo = new System.Windows.Forms.Label();
             this.pnlEnd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRetry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameOver)).BeginInit();
@@ -96,6 +96,15 @@ namespace flappy_bird
             this.pnlEnd.Size = new System.Drawing.Size(773, 655);
             this.pnlEnd.TabIndex = 10;
             this.pnlEnd.Visible = false;
+            // 
+            // retryInfo
+            // 
+            this.retryInfo.AutoSize = true;
+            this.retryInfo.Location = new System.Drawing.Point(272, 391);
+            this.retryInfo.Name = "retryInfo";
+            this.retryInfo.Size = new System.Drawing.Size(145, 13);
+            this.retryInfo.TabIndex = 14;
+            this.retryInfo.Text = "press ENTER or klick here to";
             // 
             // pbRetry
             // 
@@ -233,15 +242,6 @@ namespace flappy_bird
             this.flappyBird.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.flappyBird.TabIndex = 1;
             this.flappyBird.TabStop = false;
-            // 
-            // retryInfo
-            // 
-            this.retryInfo.AutoSize = true;
-            this.retryInfo.Location = new System.Drawing.Point(261, 391);
-            this.retryInfo.Name = "retryInfo";
-            this.retryInfo.Size = new System.Drawing.Size(168, 13);
-            this.retryInfo.TabIndex = 14;
-            this.retryInfo.Text = "press ENTER or klick here to retry\r\n";
             // 
             // mainScreen
             // 

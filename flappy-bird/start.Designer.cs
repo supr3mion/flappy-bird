@@ -32,14 +32,14 @@ namespace flappy_bird
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(start));
             this.pnlStart = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pbHighScores = new System.Windows.Forms.PictureBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pbStart = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlStart.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHighScores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -50,7 +50,7 @@ namespace flappy_bird
             // pnlStart
             // 
             this.pnlStart.Controls.Add(this.label2);
-            this.pnlStart.Controls.Add(this.pictureBox4);
+            this.pnlStart.Controls.Add(this.pbHighScores);
             this.pnlStart.Controls.Add(this.pbLogo);
             this.pnlStart.Controls.Add(this.pbStart);
             this.pnlStart.Controls.Add(this.pictureBox3);
@@ -71,17 +71,17 @@ namespace flappy_bird
             this.label2.TabIndex = 21;
             this.label2.Text = "press spacebar or press start";
             // 
-            // pictureBox4
+            // pbHighScores
             // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(376, 431);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(282, 56);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 19;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.pbHighScores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHighScores.Image = ((System.Drawing.Image)(resources.GetObject("pbHighScores.Image")));
+            this.pbHighScores.Location = new System.Drawing.Point(376, 431);
+            this.pbHighScores.Name = "pbHighScores";
+            this.pbHighScores.Size = new System.Drawing.Size(282, 56);
+            this.pbHighScores.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbHighScores.TabIndex = 19;
+            this.pbHighScores.TabStop = false;
+            this.pbHighScores.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pbLogo
             // 
@@ -152,7 +152,7 @@ namespace flappy_bird
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.start_PreviewKeyDown);
             this.pnlStart.ResumeLayout(false);
             this.pnlStart.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHighScores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -170,7 +170,7 @@ namespace flappy_bird
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pbHighScores;
         private System.Windows.Forms.Label label2;
     }
 }

@@ -189,8 +189,7 @@ namespace flappy_bird
             {
                 gravity = -10;
             }
-
-            if (e.KeyCode == Keys.Enter && pnlEnd.Visible == true && pbRetry.Visible == true)
+            if (e.KeyCode == Keys.Enter && pbRetry.Visible == true)
             {
                 reset();
             }
@@ -204,7 +203,6 @@ namespace flappy_bird
             {
                 gravity = 10;
             }
-
         }
 
         private void endGame()
@@ -270,9 +268,15 @@ namespace flappy_bird
             retryInfo.Hide();
             int totalScore = endScore;
 
+            this.Hide();
+
+            loading loadingScreen = new loading("results");
+            loadingScreen.Show();
 
             gameOver gameOverForm = new gameOver(totalScore);
             gameOverForm.ShowDialog();
+
+            loadingScreen.Close();
 
             Close();
         }
