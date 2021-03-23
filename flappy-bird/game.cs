@@ -170,14 +170,7 @@ namespace flappy_bird
             }
             if (lives == 0)
             {
-                this.life1.BackColor = System.Drawing.Color.Red;
-                lblLives.Text = "lives remaining: 0"; 
-                pbRetry.Hide();
-                retryInfo.Hide();
-                int totalScore = endScore;
-                gameOver gameOverForm = new gameOver(totalScore);
-                gameOverForm.ShowDialog();
-                Close();
+                finalScreen();
             }
 
 
@@ -267,6 +260,21 @@ namespace flappy_bird
         private void pbRetry_Click(object sender, EventArgs e)
         {
             reset();
+        }
+
+        private void finalScreen()
+        {
+            this.life1.BackColor = System.Drawing.Color.Red;
+            lblLives.Text = "lives remaining: 0";
+            pbRetry.Hide();
+            retryInfo.Hide();
+            int totalScore = endScore;
+
+
+            gameOver gameOverForm = new gameOver(totalScore);
+            gameOverForm.ShowDialog();
+
+            Close();
         }
 
     }

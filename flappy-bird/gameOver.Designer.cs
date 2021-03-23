@@ -30,6 +30,7 @@ namespace flappy_bird
         private void InitializeComponent()
         {
             this.tbName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbName
@@ -40,12 +41,22 @@ namespace flappy_bird
             this.tbName.Size = new System.Drawing.Size(295, 31);
             this.tbName.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(180, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "label1";
+            // 
             // gameOver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(684, 496);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbName);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(700, 535);
@@ -61,5 +72,6 @@ namespace flappy_bird
         #endregion
 
         private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Label label1;
     }
 }
