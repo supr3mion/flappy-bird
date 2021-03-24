@@ -106,38 +106,5 @@ namespace flappy_bird
                 return false;
             }
         }
-
-        public List<string>[] GetAllDevices()
-        {
-            string sqlQuery = "SELECT * FROM highscore ORDER BY score LIMIT 10";
-
-            List<string>[] resultList = new List<string>[2];
-            resultList[0] = new List<string>();
-            resultList[1] = new List<string>();
-
-            if (this.OpenConnection() == true)
-            {
-
-                MySqlCommand cmd = new MySqlCommand(sqlQuery, connection);
-
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                while (dataReader.Read())
-                {
-                    resultList[0].Add(dataReader["name"] + "");
-                    resultList[1].Add(dataReader["score "] + "");
-                }
-
-                dataReader.Close();
-
-                this.CloseConnection();
-
-                return resultList;
-            }
-            else
-            {
-                return resultList;
-            }
-        }
     }
 }

@@ -17,6 +17,8 @@ namespace flappy_bird
 
         private int lowestPlayerScore = 0;
 
+        private int placement = 1;
+
         private MySqlConnection connection;
 
         public gameOver(int totalScore)
@@ -34,7 +36,7 @@ namespace flappy_bird
 
             lblPlayerScore.Text = "totaal score: " + playerScore.ToString();
 
-            lowestScore();
+            lowestScore(1);
 
             if (playerScore > lowestPlayerScore)
             {
@@ -44,7 +46,17 @@ namespace flappy_bird
                 pbNewHighScore.Show();
                 btnClose.Hide();
 
-                lblHighScoreInfo.Text = "NEW HIGHSCORE" + "\r\n" + "vul hieronder uw naam in" + "\r\n" + "(waarschuwing: andere spelers kunnen de gekozen naam zien)";
+                lowestScore(10);
+
+                if (placement > 1)
+                {
+                     lblHighScoreInfo.Text = "NEW HIGHSCORE, u bent " + placement.ToString() + "e geplaatst" + "\r\n" + "vul hieronder uw naam in" + "\r\n" + "(waarschuwing: andere spelers kunnen de gekozen naam zien)";
+                } 
+                else
+                {
+                    lblHighScoreInfo.Text = "NEW HIGHSCORE, u bent " + placement.ToString() +"st geplaatst" + "\r\n" + "vul hieronder uw naam in" + "\r\n" + "(waarschuwing: andere spelers kunnen de gekozen naam zien)";
+                }
+
 
             }
             else
@@ -132,11 +144,25 @@ namespace flappy_bird
             
         }
 
-        private int lowestScore()
+        private void sqlDelete()
         {
             OpenConnection();
 
-            string sqlQuery = "SELECT * FROM highscore ORDER BY score LIMIT 1";
+            string deleteQuery = "DELETE FROM highscore ORDER BY score LIMIT 1";
+
+            MySqlCommand cmd = new MySqlCommand(deleteQuery, connection);
+
+            cmd.ExecuteNonQuery();
+
+            CloseConnection();
+
+        }
+
+        private int lowestScore(int amount)
+        {
+            OpenConnection();
+
+            string sqlQuery = "SELECT * FROM highscore ORDER BY score LIMIT " + amount;
 
             if (this.OpenConnection() == true)
             {
@@ -149,17 +175,39 @@ namespace flappy_bird
                     string localScore = dataReader["score" + ""].ToString();
 
                     lowestPlayerScore = Convert.ToInt32(localScore);
+
+                    if (amount == 10)
+                    {
+                        if (lowestPlayerScore > playerScore)
+                        {
+                            placement++;
+                        }
+                    }
                 }
 
                 dataReader.Close();
 
-                return lowestPlayerScore;
+                if (amount == 10)
+                {
+                    return placement;
+                }
+                else
+                {
+                    return lowestPlayerScore;
+                }
 
                 CloseConnection();
             }
             else
             {
-                return lowestPlayerScore;
+                if (amount == 10)
+                {
+                    return placement;
+                }
+                else
+                {
+                    return lowestPlayerScore;
+                }
 
                 CloseConnection();
             }
@@ -173,6 +221,8 @@ namespace flappy_bird
         private void btnSubmitHighScore_Click(object sender, EventArgs e)
         {
             sqlInsert();
+
+            sqlDelete();
         }
     }
 }
