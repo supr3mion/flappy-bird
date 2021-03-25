@@ -54,9 +54,9 @@ namespace flappy_bird
             // lblHighScoresName
             // 
             this.lblHighScoresName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHighScoresName.Location = new System.Drawing.Point(87, 125);
+            this.lblHighScoresName.Location = new System.Drawing.Point(12, 125);
             this.lblHighScoresName.Name = "lblHighScoresName";
-            this.lblHighScoresName.Size = new System.Drawing.Size(247, 326);
+            this.lblHighScoresName.Size = new System.Drawing.Size(322, 326);
             this.lblHighScoresName.TabIndex = 11;
             // 
             // lblHighScoresScore
