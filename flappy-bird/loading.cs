@@ -14,8 +14,10 @@ namespace flappy_bird
     {
         public loading(string info)
         {
+            //actievatie van paneel
             InitializeComponent();
 
+            //informatie over wat er geladen word
             lblLoading.Text = "loading " + info + "\r\n" + "please wait";
         }
     }
