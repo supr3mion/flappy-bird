@@ -131,7 +131,7 @@ namespace flappy_bird
                 
             }
 
-                if (pipeTop1.Visible && pipeBottom1.Visible == true)
+            if (pipeTop1.Visible == true && pipeBottom1.Visible == true)
             {
                 if (flappyBird.Bounds.IntersectsWith(pipeBottom1.Bounds) ||
                 flappyBird.Bounds.IntersectsWith(pipeTop1.Bounds)
@@ -141,7 +141,7 @@ namespace flappy_bird
                     endGame();
                 }
             }
-            if (pipeTop2.Visible && pipeBottom2.Visible == true)
+            if (pipeTop2.Visible == true && pipeBottom2.Visible == true)
             {
                 if (flappyBird.Bounds.IntersectsWith(pipeBottom2.Bounds) ||
                 flappyBird.Bounds.IntersectsWith(pipeTop2.Bounds)

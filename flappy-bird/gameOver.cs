@@ -19,6 +19,8 @@ namespace flappy_bird
 
         private int placement = 1;
 
+        private int playerAmount = 0;
+
         private MySqlConnection connection;
 
         public gameOver(int totalScore)
@@ -33,6 +35,7 @@ namespace flappy_bird
             pbNewHighScore.Hide();
 
             playerScore = totalScore;
+
 
             lblPlayerScore.Text = "totaal score: " + playerScore.ToString();
 
@@ -176,6 +179,8 @@ namespace flappy_bird
 
                     lowestPlayerScore = Convert.ToInt32(localScore);
 
+                    playerAmount++;
+
                     if (amount == 10)
                     {
                         if (lowestPlayerScore > playerScore)
@@ -222,7 +227,10 @@ namespace flappy_bird
         {
             sqlInsert();
 
-            sqlDelete();
+            if (playerAmount == 11)
+            {
+                sqlDelete();
+            }
         }
     }
 }
